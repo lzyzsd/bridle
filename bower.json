@@ -8,29 +8,40 @@
     "graphs",
     "reusable"
   ],
-  "homepage" : "http://ptdavteam.github.io/bridle/",
-  "bugs" : "https://github.com/ptdavteam/bridle/issues",
-  "main": ["bridle.js", "bridle.css"],
+  "homepage": "http://ptdavteam.github.io/bridle/",
+  "bugs": "https://github.com/ptdavteam/bridle/issues",
+  "main": [
+    "bridle.js",
+    "bridle.css"
+  ],
   "dependencies": {
     "d3": "3.1.5",
     "jquery": "*"
   },
-  "authors" : [
+  "authors": [
     {
-      "name" : "Dario Villanueva",
-      "email" : "dario.villanueva@gmail.com",
-      "url" : "http://alolo.co"
+      "name": "Dario Villanueva",
+      "email": "dario.villanueva@gmail.com",
+      "url": "http://alolo.co"
     },
     {
-      "name" : "Hubert Rogers",
-      "email" : "hubert.rogers@gmail.com"
+      "name": "Hubert Rogers",
+      "email": "hubert.rogers@gmail.com"
     }
   ],
-  "repository" : {
-    "type" : "git",
-    "url" : "git@github.com:ptdavteam/bridle.git"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ptdavteam/bridle.git"
   },
-  "licenses" : [{
-    "type" : "Apache"
-  }]
+  "licenses": [
+    {
+      "type": "Apache"
+    }
+  ],
+  "devDependencies": {
+    "mocha": "~1.12.1",
+    "chai": "~1.7.2",
+    "expect": "~0.2.0",
+    "sinon": "http://sinonjs.org/releases/sinon-1.7.3.js"
+  }
 }

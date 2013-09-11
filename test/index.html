@@ -2,47 +2,52 @@
 
 <html>
 
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Mocha Spec Runner</title>
-    <link rel="stylesheet" href="css/bridle.css"/>
-    <link rel="stylesheet" href="lib/mocha/mocha.css">    
-  </head>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Mocha Spec Runner</title>
+  <link rel="stylesheet" href="components/mocha/mocha.css">
+  <link rel="stylesheet" href="dist/css/bridle.css"/>
+</head>
 
-  <body>
+<body>
 
-    <div id="mocha"></div>
-    <main id="main"></main>
-    <script src="lib/mocha/mocha.js"></script>
-    <script src="lib/chai.js"></script>
-    <script>
-      mocha.setup('bdd');
-      //mocha.reporter('html');
-      
-      chai.should();
+<div id="mocha"></div>
+<main id="main"></main>
+<script src="components/mocha/mocha.js"></script>
+<script src="components/chai/chai.js"></script>
+<script src="components/sinon/index.js"></script>
+<script>
+  mocha.setup('bdd');
+  //mocha.reporter('html');
 
+  chai.should();
+  before(function() {
+    this.clock = sinon.useFakeTimers();
+  });
+  after(function() {
+    this.clock.restore();
+  });
 
-    </script>
-    <script src="lib/jquery.min.js"></script>
-    <script src="lib/d3.v3.min.js" charset="utf-8"></script>
-    <script src="bridle.js"></script> 
-    <script src="spec/barChartSpecs.js"></script>
-    <script src="spec/lineChartSpecs.js"></script>
-    <script src="spec/stackedChartSpecs.js"></script>
-
-
-
-    <div id="bar-chart"></div>
-    <div id="line-chart"></div>
-    <div id="stacked-chart"></div>
-
-
-    <!-- trigger the mocha runner -->  
-
-    <script src="runner/mocha.js"></script>
+</script>
+<script src="components/jquery/jquery.min.js"></script>
+<script src="components/d3/d3.min.js"></script>
+<script src="dist/bridle.js"></script>
+<script src="spec/barChartSpecs.js"></script>
+<script src="spec/lineChartSpecs.js"></script>
+<script src="spec/stackedChartSpecs.js"></script>
 
 
-  </body>
+<div id="bar-chart"></div>
+<div id="line-chart"></div>
+<div id="stacked-chart"></div>
+
+
+<!-- trigger the mocha runner -->
+
+<script src="runner/mocha.js"></script>
+
+
+</body>
 
 </html>

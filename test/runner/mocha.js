@@ -1,18 +1,24 @@
+/*global sinon, mocha, mochaPhantomJS, before, alert*/
 (function() {
+  'use strict';
 
-  console.log("are we on phantom?", window.mochaPhantomJS, runner)
+  console.log("are we on phantom?", window.mochaPhantomJS, runner);
 
-  if (window.mochaPhantomJS) { 
-    console.log('hey')
-    mochaPhantomJS.run(); 
+  if (window.mochaPhantomJS) {
+    console.log('hey');
+    mochaPhantomJS.run();
     return;
-  } 
+  }
 
   var runner = mocha.run().globals(['LiveReload', 'jQuery*', '__screenCapturePageContext__']);
 
-  
+  before(function() {
 
-  if(!window.PHANTOMJS) return;
+  });
+
+  if (!window.PHANTOMJS) {
+    return;
+  }
 
   runner.on('test', function(test) {
     sendMessage('testStart', test.title);
@@ -27,7 +33,9 @@
   });
 
   runner.on('suite end', function(suite) {
-    if (suite.root) return;
+    if (suite.root) {
+      return;
+    }
     sendMessage('suiteDone', suite.title);
   });
 
@@ -37,12 +45,12 @@
 
   runner.on('end', function() {
     var output = {
-      failed  : this.failures,
-      passed  : this.total - this.failures,
-      total   : this.total
+      failed : this.failures,
+      passed : this.total - this.failures,
+      total  : this.total
     };
 
-    sendMessage('done', output.failed,output.passed, output.total);
+    sendMessage('done', output.failed, output.passed, output.total);
   });
 
   function sendMessage() {
