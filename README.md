@@ -12,7 +12,7 @@ Ideally you want to use bower and just type:
 bower install bridle
 ```
 
-Then you can require it with require.js as you would normally do with any other AMD package
+Then you can require it with require.js as you would normally do with any other AMD package or just use the distributed files.
 
 ### Dependencies
 Bridle depends on d3.js and jquery. Make sure they are loaded before you load bridle.
@@ -91,14 +91,12 @@ d3.select('#line-chart')
 
 ## Development
 
-In order to develop you will need to run `npm install` on the local directory. This will install the dependencies listed on `package.json`. 
+Prerequisites:
+1. `$ npm install`
+2. `$ bower install`
+3. [Sass](http://sass-lang.com/) installed (`$ gem install sass`)
 
-To compile the `scss` file you'll need sass - just install it by running 
-```
-$ gem install sass
-```
-
-now you can type `make` to build the js files and the css version of the library
+Now you can type `make` to build the source js and css files of the library.
 
 #### Makefile
 The concatenation happens on the makefile. If you're adding a new module, or a new visualisation, add it between `legendbox.js` and `footer.js`, then run `make`. This will concatenate the files inside `src` and create a new `bridle.js` and `bridle.min.js`
