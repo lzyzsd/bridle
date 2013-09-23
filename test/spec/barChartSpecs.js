@@ -538,7 +538,7 @@
       // click on the third legend item - (kiwi)
       var legendItems = d3.selectAll('g.legendItem');
       $(legendItems[0][3]).d3Click();
-
+      this.clock.tick(10000);
     });
 
     it('triggers "disabled" on clicked data point', function() {
